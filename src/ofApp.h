@@ -1,8 +1,7 @@
 #pragma once
-
 #include "ofMain.h"
+#include "ofxGui.h"
 #include "ofxPS3EyeGrabber.h"
-
 
 // key use this http://zadig.akeo.ie/
 

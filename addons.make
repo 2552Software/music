@@ -3,4 +3,3 @@ ofxKinect
 ofxNetwork
 ofxOpenCv
 ofxPS3EyeGrabber
-ofxStk

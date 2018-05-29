@@ -1,4 +1,17 @@
 #include "ofApp.h"
+const float NoteC = 65.41;
+const float NoteD = 73.42;
+const float NoteE = 82.41;
+const float NoteF = 87.31;
+const float NoteG = 98.0;
+const float NoteA = 110.0;
+const float NoteB = 123.47;
+const float NoteC2 = 130.81;
+const float NoteD2 = 146.83;
+const int op4FeedbackCC = 2;
+const int op3GainCC = 4;
+const int LFOSpeedCC = 11;
+const int LFODepthCC = 1;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -8,9 +21,7 @@ void ofApp::setup(){
     // Now cycle through the devices and set up grabbers for each.
 
     for (std::size_t i = 0; i < devices.size(); ++i)    {
-
         std::stringstream ss;
-
         // Since the PS3Eye does not provide a serial number via its USB
         // interface, the devices[i].id offers the next best alternative. The
         // devices[i].id is constructed from the USB topology and should remain
@@ -47,7 +58,9 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for (auto& g : grabbers) g->update();
+    for (auto& g : grabbers) {
+        g->update();
+    }
 }
 
 //--------------------------------------------------------------
@@ -85,10 +98,7 @@ void ofApp::draw(){
     ss << "    d: Cycle Demosaicing Types";
     ofDrawBitmapStringHighlight(ss.str(), ofGetWidth() - 250, 16);
 }
-void ofApp::keyPressed(int key)
-
-{
-
+void ofApp::keyPressed(int key){
     if (key == 'h')    {
         for (auto& g : grabbers) g->getGrabber<ofxPS3EyeGrabber>()->setFlipHorizontal(!g->getGrabber<ofxPS3EyeGrabber>()->getFlipHorizontal());
     }
@@ -123,10 +133,8 @@ void ofApp::keyPressed(int key)
     }
 }
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
+void ofApp::keyReleased(int key) {
 }
-
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
 
